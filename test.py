@@ -67,9 +67,11 @@ def test_configurable_simulation():
     sim.config = 'configurable.conf'
     sim.engine = engine
 
-    sim.numsteps = 1000
-    sim.cutoff = 10.0
-    sim.water_model = 'tip4'
+    sim.add_placeholder('numsteps', 1000)
+    sim.add_placeholder('cutoff', 10.0)
+    sim.add_placeholder('switchingdist', 8.0)
+    sim.add_placeholder('pairlistdist', 11.5)
+    sim.add_placeholder('water_model', 'tip4')
 
     ht = Runner(resource=resource)
     ht.rabbitmq_config(**rabbit_mq)
