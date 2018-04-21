@@ -43,7 +43,7 @@ def test_replica_simulation():
 def test_replica_systems_simulation():
 
     s1 = System(prefix='nilotinib-e255k')
-    s2 = System(prefix='nilotinib-e255b')
+    s2 = System(prefix='nilotinib-e255v')
 
     sim = EnsembleSimulation()
     sim.config = 'simple.conf'
