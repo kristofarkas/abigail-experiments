@@ -14,9 +14,6 @@ export RADICAL_PILOT_VERBOSE='DEBUG'
 export LD_PRELOAD='/lib64/librt.so.1'
 
 export PATH=/lustre/atlas/scratch/farkaspall/chm126/miniconda2/bin:$PATH
-export LD_LIBRARY_PATH=/lustre/atlas/scratch/farkaspall/chm126/miniconda2/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=/lustre/atlas/scratch/farkaspall/chm126/miniconda2/lib:${LD_LIBRARY_PATH}
 
-python single-htbac.py
-
-
-
+python test.py
