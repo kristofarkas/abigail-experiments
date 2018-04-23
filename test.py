@@ -79,6 +79,7 @@ def test_configurable_simulation():
 
     ht.run(**run_conf)
 
+
 def test_full_simulation():
     s1 = System(prefix='nilotinib-e255k')
     s2 = System(prefix='nilotinib-e255v')
@@ -103,11 +104,11 @@ def test_full_simulation():
 
     ht.run(**run_conf)
 
+
 def test_protocol():
     
     s1 = System(prefix='nilotinib-e255k')
     s2 = System(prefix='nilotinib-e255v')
-
 
     sim1 = EnsembleSimulation()
     sim1.config = 'protocol_1.conf'
@@ -143,6 +144,7 @@ def test_protocol():
     ht.add_protocol(p)
 
     ht.run(**run_conf)
+
 
 if __name__ == '__main__':
     test_protocol()
