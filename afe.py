@@ -19,7 +19,7 @@ def run_afe():
     afe.numsteps = 10
 
     afe.add_input_file('inputs/md2.inp', is_executable_argument=True)
-    afe.add_input_file('inputs/restrain.in', is_executable_argument=False)
+    afe.add_input_file('inputs/restraint.in', is_executable_argument=False)
 
     afe.add_ensemble('replica', range(2))
     afe.add_ensemble('lambda_window', [0.0, 1.0])
