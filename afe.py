@@ -26,7 +26,7 @@ def run_afe():
 
     afe.cutoff = 12.0
     afe.switchdist = 10.0
-    afe.pairlistdist = 11.5
+    afe.pairlistdist = 13.5
 
     afe.k1 = 10
     afe.k2 = 500
