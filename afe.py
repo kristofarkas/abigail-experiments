@@ -33,6 +33,7 @@ def run_afe():
 
     ht = Runner('local')
     ht.rabbitmq_config(hostname='two.radical-project.org', port=33146)
+    ht.add_protocol(afe)
     ht.run(walltime=1000)
 
 
