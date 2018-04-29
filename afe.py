@@ -4,13 +4,13 @@ Example implementation using Abigail and NAMD.
 
 """
 
-from htbac import EnsembleSimulation, Runner, System
+from htbac import Runner, System, Simulation
 
 
 def run_afe():
     system = System(prefix='systems/dov-wt')
 
-    afe = EnsembleSimulation()
+    afe = Simulation()
     afe.system = system
     afe.engine = 'namd'
     afe.cores = 2
@@ -31,8 +31,7 @@ def run_afe():
     afe.k1 = 10
     afe.k2 = 500
 
-    ht = Runner('local')
-    ht.rabbitmq_config(hostname='two.radical-project.org', port=33146)
+    ht = Runner(comm_server=('two.radical-project.org', 33146))
     ht.add_protocol(afe)
     ht.run(walltime=1000)
 
