@@ -30,7 +30,7 @@ def run_rfe():
 
     rfe_sim = Simulation()
     rfe_sim.add_input_file(Rfe.step1, is_executable_argument=True)
-    rfe.numsteps = 1000
+    rfe_sim.numsteps = 50
 
     p = Protocol()
     p.append(rfe)
