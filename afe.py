@@ -5,6 +5,7 @@ Example implementation using Abigail and NAMD.
 """
 
 from htbac import Runner, System, Simulation
+from htbac.protocols import Afe
 
 
 def run_afe():
@@ -18,7 +19,7 @@ def run_afe():
     afe.numminsteps = 10
     afe.numsteps = 10
 
-    afe.add_input_file('inputs/md2.inp', is_executable_argument=True)
+    afe.add_input_file(Afe.step0, is_executable_argument=True)
     afe.add_input_file('inputs/restraint.in', is_executable_argument=False)
 
     afe.add_ensemble('replica', range(2))
