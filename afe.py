@@ -23,7 +23,7 @@ def run_afe():
     afe.add_input_file('inputs/restraint.in', is_executable_argument=False)
 
     afe.add_ensemble('replica', range(2))
-    afe.add_ensemble('lambda-window', [0.0, 1.0])
+    afe.add_ensemble('lambdawindow', [0.0, 1.0])
 
     afe.cutoff = 12.0
     afe.switchdist = 10.0

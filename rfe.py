@@ -24,7 +24,7 @@ def run_rfe():
     rfe.add_input_file(Rfe.step0, is_executable_argument=True)
 
     rfe.add_ensemble('replica', range(5))
-    rfe.add_ensemble('lambda-window', np.linspace(0, 1, 65))
+    rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 65))
 
     rfe.cutoff = 12.0
     rfe.switchdist = 10.0
