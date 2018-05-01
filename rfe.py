@@ -45,4 +45,3 @@ def run_rfe():
 
 if __name__ == '__main__':
     run_rfe()
-
