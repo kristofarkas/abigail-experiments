@@ -1,8 +1,3 @@
-# abigail-experiments
+# Abigail experiments
 
-To run: 
-
-```python
-import abigail as ab
-
-```
+Some experiments to test out HTBAC capabilities.

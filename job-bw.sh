@@ -1,6 +1,5 @@
 #!/bin/bash
 
-export RADICAL_PILOT_DBURL='mongodb://user:user@ds239009.mlab.com:39009/inspire-2'
 export SAGA_PTY_SSH_TIMEOUT=2000
 export RADICAL_PILOT_PROFILE=True
 export RADICAL_ENMD_PROFILE=True
