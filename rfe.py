@@ -17,29 +17,27 @@ def run_rfe():
     cor = AbFile('systems/ptp1b-l1-l2-complex.inpcrd', tag='coordinate')
     system = System(name='ptp1b-l1-l2', files=[pdb, top, tag, cor])
 
-    rfe = Simulation()
-    rfe.system = system
-    rfe.engine = 'namd_mpi'
-    rfe.cores = 128
+    p = Protocol(clone_settings=False)
 
-    rfe.cutoff = 12.0
-    rfe.switchdist = 10.0
-    rfe.pairlistdist = 13.5
-    rfe.numminsteps = 10000
-    rfe.numsteps = 10000
+    for step, numsteps in zip(Rfe.steps, [100, 100]):
 
-    rfe.add_input_file(Rfe.step0, is_executable_argument=True)
+        rfe = Simulation()
+        rfe.system = system
+        rfe.engine = 'namd_mpi'
+        rfe.cores = 128
 
-    rfe.add_ensemble('replica', range(5))
-    rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 65))
+        rfe.cutoff = 12.0
+        rfe.switchdist = 10.0
+        rfe.pairlistdist = 13.5
+        rfe.numminsteps = 100
+        rfe.numsteps = numsteps
 
-    rfe_sim = Simulation()
-    rfe_sim.add_input_file(Rfe.step1, is_executable_argument=True)
-    rfe_sim.numsteps = 3000000
+        rfe.add_input_file(step, is_executable_argument=True)
 
-    p = Protocol(clone_settings=True)
-    p.append(rfe)
-    p.append(rfe_sim)
+        rfe.add_ensemble('replica', range(5))
+        rfe.add_ensemble('lambdawindow', np.linspace(0, 1, 65))
+
+        p.append(rfe)
 
     ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
     ht.add_protocol(p)
