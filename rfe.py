@@ -19,7 +19,7 @@ def run_rfe():
 
     p = Protocol(clone_settings=False)
 
-    for step, numsteps in zip(Rfe.steps, [100, 100]):
+    for step, numsteps in zip(Rfe.steps, [10000, 3000000]):
 
         rfe = Simulation()
         rfe.system = system
@@ -29,7 +29,7 @@ def run_rfe():
         rfe.cutoff = 12.0
         rfe.switchdist = 10.0
         rfe.pairlistdist = 13.5
-        rfe.numminsteps = 100
+        rfe.numminsteps = 10000
         rfe.numsteps = numsteps
 
         rfe.add_input_file(step, is_executable_argument=True)
@@ -41,7 +41,7 @@ def run_rfe():
 
     ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
     ht.add_protocol(p)
-    ht.run(walltime=480, queue='high', access_schema='local')
+    ht.run(walltime=480, queue='high')
 
 
 if __name__ == '__main__':
