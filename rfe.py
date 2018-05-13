@@ -43,7 +43,7 @@ def run_rfe():
 
     ht = Runner('bw_aprun', comm_server=('two.radical-project.org', 33158))
     ht.add_protocol(p)
-    ht.run(walltime=480, queue='high', access_schema='local')
+    ht.run(walltime=480, queue='high')
 
 
 if __name__ == '__main__':
