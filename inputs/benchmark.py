@@ -14,13 +14,13 @@ import time
 
 def main():
 
-    prmtop_filename = 'SYSTEM-complex.top'
-    crd_filename = 'SYSTEM-complex.inpcrd'
+    prmtop_filename = '<topology>'
+    crd_filename = '<coordinate>'
 
     prmtop = AmberParm(prmtop_filename, crd_filename)
 
-    system = prmtop.createSystem(nonbondedMethod=app.PME, nonbondedCutoff=CUTOFF*unit.angstrom,
-                                 constraints=app.HBonds, switchDistance=SWITCHING*unit.angstrom)
+    system = prmtop.createSystem(nonbondedMethod=app.PME, nonbondedCutoff=10*unit.angstrom,
+                                 constraints=app.HBonds, switchDistance=8*unit.angstrom)
 
     temperature = 300 * unit.kelvin
     pressure = 1 * unit.atmosphere
@@ -52,7 +52,7 @@ def main():
 
     # Time integration
     print('Benchmarking...')
-    nsteps = STEP
+    nsteps = <numsteps>
     initial_time = time.time()
     integrator.step(nsteps)
     final_time = time.time()
