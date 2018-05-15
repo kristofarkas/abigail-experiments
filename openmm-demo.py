@@ -17,6 +17,8 @@ sim.system = system
 
 sim.numsteps = 1000
 
+sim.add_input_file('inputs/benchmark.py', is_executable_argument=True)
+
 ht = Runner(resource='titan_orte', comm_server=('csc190specfem.marble.ccs.ornl.gov', 30672))
 ht.add_protocol(sim)
 ht.run(walltime=30, queue='debug')
